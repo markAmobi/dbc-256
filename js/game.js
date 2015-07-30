@@ -41,7 +41,7 @@ function collapseLeft(array, colNumber){ //recursive collapse.
     return array;
   }
 
-  //-------------------- fix col 1.
+  //-------------------------- fix col 1.
   else if(colNumber === 1){
     if(array[0] === 0){
       a[0] = a[1];
@@ -54,7 +54,7 @@ function collapseLeft(array, colNumber){ //recursive collapse.
     else { //do nothing
 
     }
-    return collapseLeft(array, 0);
+    return array;
   }
 
   //------------------------- fix col 2.
@@ -70,23 +70,23 @@ function collapseLeft(array, colNumber){ //recursive collapse.
       return collapseLeft(array, 1);
     }
     else { //do nothing
-
+      return array;
     }
-    return collapseLeft(array, 1);
   }
   //--------------------- fix col 3 .
-  else if(colNumber === 1){
-    if(array[0] === 0){
-      a[0] = a[1];
-      a[1] = 0;
+  else if(colNumber === 2){
+    if(array[2] === 0){
+      a[2] = a[3];
+      a[3] = 0;
+      return collapseLeft(array, 2);
     }
-    else if(array[0] === array[1]){
-      a[0] = a[0] + a[1];
-      a[1] = 0;
+    else if(array[2] === array[3]){
+      a[2] = a[2] + a[3];
+      a[3] = 0;
+      return collapseLeft(array, 2);
     }
     else { //do nothing
-
+      return array;
     }
-    return collapseLeft(array, 2);
   }
 }
