@@ -30,4 +30,63 @@ Game.prototype.moveLeft = function(){
 
 }
 
-Game.prototype.moveRowLeft = function
+Game.prototype.moveRowLeft = function(row){
+  var currentRow = this.gameArray[row];
+
+
+}
+
+function collapseLeft(array, colNumber){ //recursive collapse.
+  if(colNumber === 0){
+    return array;
+  }
+
+  //-------------------- fix col 1.
+  else if(colNumber === 1){
+    if(array[0] === 0){
+      a[0] = a[1];
+      a[1] = 0;
+    }
+    else if(array[0] === array[1]){
+      a[0] = a[0] + a[1];
+      a[1] = 0;
+    }
+    else { //do nothing
+
+    }
+    return collapseLeft(array, 0);
+  }
+
+  //------------------------- fix col 2.
+  else if(colNumber === 1){
+    if(array[1] === 0){
+      a[1] = a[2];
+      a[2] = 0;
+      return collapseLeft(array, 1);
+    }
+    else if(array[1] === array[2]){
+      a[1] = a[1] + a[2];
+      a[2] = 0;
+      return collapseLeft(array, 1);
+    }
+    else { //do nothing
+
+    }
+    return collapseLeft(array, 1);
+  }
+  //--------------------- fix col 3 .
+  else if(colNumber === 1){
+    if(array[0] === 0){
+      a[0] = a[1];
+      a[1] = 0;
+    }
+    else if(array[0] === array[1]){
+      a[0] = a[0] + a[1];
+      a[1] = 0;
+    }
+    else { //do nothing
+
+    }
+    return collapseLeft(array, 2);
+  }
+}
