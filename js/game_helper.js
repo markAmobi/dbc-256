@@ -152,3 +152,13 @@ function collapseLeft(arr, row, col){ //recursive collapse.
 
 
 
+// COLORS = {0: "white",
+//           2: "#E8E1D2",
+//           4: "#E8D0A5",
+//           8: "#E8AA6F",
+//           16: "#E88A4C",
+//           32: "#E86550",
+//           64: "#E8462D",
+//           128: "#FFE35D",
+//           256: "#FFC700"
+//           }

@@ -43,7 +43,18 @@ function updateRow(gameArray, rowNum){
   var tableRow = $("#r" + rowNum);
   var content = "";
   for(var i=0; i<4; i++){
-    content += "<td>"+ row[i] +"</td>"
+    content +=("<td style='background-color:" + COLORS[row[i]] + ";'><strong>"+ row[i] +"</strong></td>");
   }
   tableRow.html(content);
 }
+
+COLORS = {0: "white",
+          2: "#E8E1D2",
+          4: "#E8D0A5",
+          8: "#E8AA6F",
+          16: "#E88A4C",
+          32: "#E86550",
+          64: "#E8462D",
+          128: "#FFE35D",
+          256: "#FFC700"
+          }
