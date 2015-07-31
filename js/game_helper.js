@@ -27,7 +27,7 @@ function moveArrayDown(arr){
 function moveArrayRight(arr){
   //flip, move Left, flipback.
   flipArray(arr);
-  moveRowLeft(arr);
+  moveArrayLeft(arr);
   flipArray(arr);
 
 }

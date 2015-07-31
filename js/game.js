@@ -19,7 +19,7 @@ Game.prototype.oneDArray = function(){
   return _.flatten(this.twoDArray);
 }
 
-Game.prototype.twoDArray = function(){
+Game.prototype.get2DArray = function(){
   return this.twoDArray;
 }
 
