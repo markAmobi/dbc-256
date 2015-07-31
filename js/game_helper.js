@@ -110,8 +110,10 @@ function putIn2or4(arr){
 this function takes a 2d array, and a row number, and then does all necessary collapse
 from left to right. (ie when user presses left. )
 **/
+var rowAlreadyCollapsed = false;
 function moveRowLeft(arr, row){ //arr is 2d array, row is row number.
   var currentRow = arr[row];
+  rowAlreadyCollapsed = false;
   collapseLeft(arr, row, 0);
   collapseLeft(arr, row, 1);
   collapseLeft(arr, row, 2);
@@ -134,6 +136,9 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       arr[row][1] = 0;
     }
     else if(arr[row][0] === arr[row][1]){
+      if (rowAlreadyCollapsed)
+        return;
+      rowAlreadyCollapsed = true;
       arr[row][0] = arr[row][0] + arr[row][1];
       arr[row][1] = 0;
     }
@@ -149,6 +154,9 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       collapseLeft(arr, row, 1);
     }
     else if(arr[row][1] === arr[row][2]){
+      if (rowAlreadyCollapsed)
+        return;
+      rowAlreadyCollapsed = true;
       arr[row][1] = arr[row][1] + arr[row][2];
       arr[row][2] = 0;
       collapseLeft(arr, row, 1);
@@ -164,6 +172,7 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       collapseLeft(arr, row, 2);
     }
     else if(arr[row][2] === arr[row][3]){
+      rowAlreadyCollapsed = true;
       arr[row][2] = arr[row][2] + arr[row][3];
       arr[row][3] = 0;
       collapseLeft(arr, row, 2);
