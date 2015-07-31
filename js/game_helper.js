@@ -2,6 +2,19 @@
 /**
 this function takes a 2D array, and does a left collapse on the whole thing.
 **/
+
+function moveArrayUp(arr){
+//unzip, moveLeft, unzip.
+
+}
+
+function moveArrayDown(arr){
+
+}
+
+function moveArrayRight(arr){
+
+}
 function moveArrayLeft(arr){
   moveRowLeft(arr, 0); //move row 1 left
   moveRowLeft(arr, 1); //move row 2 left
@@ -28,7 +41,7 @@ this function takes a 2D arr, a row num, and a col num and does a left collapse(
 **/
 function collapseLeft(arr, row, col){ //recursive collapse.
   if(col === 0){
-    // return array;
+    // do nothing
   }
 
   //-------------------------- fix col 1.
@@ -42,9 +55,7 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       arr[row][1] = 0;
     }
     else { //do nothing
-
     }
-    // return array;
   }
 
   //------------------------- fix col 2.
@@ -60,7 +71,6 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       collapseLeft(arr, row, 1);
     }
     else { //do nothing
-      // return array;
     }
   }
   //--------------------- fix col 3 .
@@ -76,7 +86,6 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       collapseLeft(arr, row, 2);
     }
     else { //do nothing
-      // return array;
     }
   }
 }
