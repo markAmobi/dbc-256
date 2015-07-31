@@ -1,11 +1,11 @@
+/**
+  the 2D array shall preserve the current state of the board at any point in time.
+**/
+
 function Game(board){
   this.board = board || '0000202000000000';
-  this.twoDArray = [];
-
+  this.twoDArray = convertStringTo2DArray(this.board);
 }
-
-
-
 
 Game.prototype.toString = function(){
   var finalString = this.board.substr(0,4) + "\n" +
@@ -15,22 +15,33 @@ Game.prototype.toString = function(){
   return finalString;
 }
 
-
-
-
-Game.prototype.singleArray = function(){
-
+Game.prototype.oneDArray = function(){
+  return _.flatten(this.twoDArray);
 }
 
 Game.prototype.twoDArray = function(){
-
+  return this.twoDArray;
 }
 
 Game.prototype.singleString = function(){
-
+  return convert2DArrayToString(this.twoDArray);
 }
 
+Game.prototype.moveLeft = function(){
+  moveArrayLeft(this.twoDArray);
+}
 
+Game.prototype.moveRight = function(){
+  moveArrayRight(this.twoDArray);
+}
+
+Game.prototype.moveUp = function(){
+  this.twoDArray = moveArrayUp(this.twoDArray);
+}
+
+Game.prototype.moveDown = function(){
+  this.twoDArray = moveArrayDown(this.twoDArray);
+}
 
 
 // Game.prototype.moveLeft = function(){

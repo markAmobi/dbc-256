@@ -3,25 +3,85 @@
 this function takes a 2D array, and does a left collapse on the whole thing.
 **/
 
+//nondestructive.
 function moveArrayUp(arr){
-//unzip, moveLeft, unzip.
+  //unzip, moveLeft, unzip.
+  var arrClone = arr.slice();
+  var unzippedClone = _.unzip(arrClone);
+  moveArrayLeft(unzippedClone);
+  recoveredClone = _.unzip(unzippedClone);
+  return recoveredClone;
 
 }
 
+//non-destructive.
 function moveArrayDown(arr){
-
+  //unzip, moveright, unzip.
+  var arrClone = arr.slice();
+  var unzippedClone = _.unzip(arrClone);
+  moveArrayRight(unzippedClone);
+  recoveredClone = _.unzip(unzippedClone);
+  return recoveredClone;
 }
 
 function moveArrayRight(arr){
+  //flip, move Left, flipback.
+  flipArray(arr);
+  moveRowLeft(arr);
+  flipArray(arr);
 
 }
-function moveArrayLeft(arr){
+
+function moveArrayLeft(arr){ //destructive method!
   moveRowLeft(arr, 0); //move row 1 left
   moveRowLeft(arr, 1); //move row 2 left
   moveRowLeft(arr, 2); //move row 3 left
   moveRowLeft(arr, 3); //move row 4 left
 
 }
+
+
+
+//destructive method!
+function flipArray(arr){ //reverses all rows of array.
+  arr[0].reverse();
+  arr[1].reverse();
+  arr[2].reverse();
+  arr[3].reverse();
+}
+
+function convertStringTo2DArray(str){
+  var r1 = str.substr(0, 4).split("").map(function(x){return parseInt(x)});
+  var r2 = str.substr(4, 4).split("").map(function(x){return parseInt(x)});
+  var r3 = str.substr(8, 4).split("").map(function(x){return parseInt(x)});
+  var r4 = str.substr(12, 4).split("").map(function(x){return parseInt(x)});
+  return [r1, r2, r3, r4];
+}
+
+
+function convert2DArrayToString(arr){
+  return arr.map(function(row){return row.join("")}).join("");
+}
+
+function convert2DArrayTo1DArray(arr){
+  return _.flatten(arr);
+}
+
+
+function get2Or4(){
+  var choice = Math.round(Math.random());
+  if (choice === 0)
+    return 2;
+  else return 4;
+}
+
+function getRandom0_15(){
+  return Math.random() * 15;
+}
+
+
+/***** WARNING: GORY DETAILS BELOW ********/
+
 
 /**
 this function takes a 2d array, and a row number, and then does all necessary collapse
@@ -91,13 +151,4 @@ function collapseLeft(arr, row, col){ //recursive collapse.
 }
 
 
-function get2Or4(){
-  var choice = Math.round(Math.random());
-  if (choice === 0)
-    return 2;
-  else return 4;
-}
 
-function getRandom0_15(){
-  return Math.random() * 15;
-}
