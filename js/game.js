@@ -29,19 +29,33 @@ Game.prototype.singleString = function(){
 
 Game.prototype.moveLeft = function(){
   moveArrayLeft(this.twoDArray);
+  //insert random 2 or 4
+  this.spawnBlock();
 }
 
 Game.prototype.moveRight = function(){
   moveArrayRight(this.twoDArray);
+  //insert random 2 or 4
+  this.spawnBlock();
 }
 
 Game.prototype.moveUp = function(){
   this.twoDArray = moveArrayUp(this.twoDArray);
+  //insert random 2 or 4
+  this.spawnBlock();
 }
 
 Game.prototype.moveDown = function(){
   this.twoDArray = moveArrayDown(this.twoDArray);
+  //insert random 2 or 4
+  this.spawnBlock();
 }
+
+Game.prototype.spawnBlock = function() {
+  var onD = this.oneDArray();
+  putIn2or4(onD);
+  this.twoDArray = convert1DArrayTo2DArray(onD);
+};
 
 
 // Game.prototype.moveLeft = function(){

@@ -67,6 +67,15 @@ function convert2DArrayTo1DArray(arr){
   return _.flatten(arr);
 }
 
+function convert1DArrayTo2DArray(arr){
+  var r1 = arr.slice(0, 4);
+  var r2 = arr.slice(4, 8);
+  var r3 = arr.slice(8, 12);
+  var r4 = arr.slice(12, 16);
+
+  return [r1, r2, r3, r4];
+}
+
 
 function get2Or4(){
   var choice = Math.round(Math.random());
@@ -78,6 +87,20 @@ function get2Or4(){
 function getRandom0_15(){
   return Math.random() * 15;
 }
+
+function getEmptySlots(arr){
+  var indices = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  var emptySlots = indices.filter(function(item){return arr[item] === 0});
+  return emptySlots;
+}
+
+function putIn2or4(arr){
+  var emptySlots = getEmptySlots(arr);
+  var chosenOne = _.sample(emptySlots);
+  arr[chosenOne] = get2Or4();
+}
+
+
 
 
 /***** WARNING: GORY DETAILS BELOW ********/
