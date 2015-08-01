@@ -28,33 +28,51 @@ Game.prototype.singleString = function(){
 }
 
 Game.prototype.moveLeft = function(){
+
+  var initialState = JSON.stringify(this.twoDArray);
   moveArrayLeft(this.twoDArray);
+  var finalState = JSON.stringify(this.twoDArray);
   //insert random 2 or 4
-  this.spawnBlock();
+  //if moved
+  if(initialState !== finalState)
+    this.spawnBlock();
 }
 
 Game.prototype.moveRight = function(){
+  var initialState = JSON.stringify(this.twoDArray);
   moveArrayRight(this.twoDArray);
+  var finalState = JSON.stringify(this.twoDArray);
   //insert random 2 or 4
-  this.spawnBlock();
+  //if moved
+  if(initialState !== finalState)
+    this.spawnBlock();
 }
 
+
 Game.prototype.moveUp = function(){
+  var initialState = JSON.stringify(this.twoDArray);
   this.twoDArray = moveArrayUp(this.twoDArray);
+  var finalState = JSON.stringify(this.twoDArray);
   //insert random 2 or 4
-  this.spawnBlock();
+  //if moved
+  if(initialState !== finalState)
+    this.spawnBlock();
 }
 
 Game.prototype.moveDown = function(){
+  var initialState = JSON.stringify(this.twoDArray);
   this.twoDArray = moveArrayDown(this.twoDArray);
+  var finalState = JSON.stringify(this.twoDArray);
   //insert random 2 or 4
-  this.spawnBlock();
+  //if moved
+  if(initialState !== finalState)
+    this.spawnBlock();
 }
 
 Game.prototype.spawnBlock = function() {
-  var onD = this.oneDArray();
-  putIn2or4(onD);
-  this.twoDArray = convert1DArrayTo2DArray(onD);
+  var oneD = this.oneDArray();
+  putIn2or4(oneD);
+  this.twoDArray = convert1DArrayTo2DArray(oneD);
 };
 
 

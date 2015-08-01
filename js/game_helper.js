@@ -140,3 +140,4 @@ function collapseLeft(arr, row, col){ //recursive collapse.
       collapseLeft(arr, row, col-1);
     }
 }
+
