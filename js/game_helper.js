@@ -118,79 +118,25 @@ function moveRowLeft(arr, row){ //arr is 2d array, row is row number.
   collapseLeft(arr, row, 1);
   collapseLeft(arr, row, 2);
   collapseLeft(arr, row, 3);
-
 }
 
 /**
 this function takes a 2D arr, a row num, and a col num and does a left collapse(2048 style.)
 **/
 function collapseLeft(arr, row, col){ //recursive collapse.
-  if(col === 0){
-    // do nothing
-  }
-
-  //-------------------------- fix col 1.
-  else if(col === 1){
-    if(arr[row][0] === 0){
-      arr[row][0] = arr[row][1];
-      arr[row][1] = 0;
+  if(col == 0)
+      return;
+    else if(arr[row][col-1] === 0){
+      arr[row][col-1] = arr[row][col];
+      arr[row][col] = 0;
+      collapseLeft(arr, row, col-1);
     }
-    else if(arr[row][0] === arr[row][1]){
+    else if(arr[row][col-1] === arr[row][col]){
       if (rowAlreadyCollapsed)
         return;
       rowAlreadyCollapsed = true;
-      arr[row][0] = arr[row][0] + arr[row][1];
-      arr[row][1] = 0;
+      arr[row][col-1] = arr[row][col-1] + arr[row][col];
+      arr[row][col] = 0;
+      collapseLeft(arr, row, col-1);
     }
-    else { //do nothing
-    }
-  }
-
-  //------------------------- fix col 2.
-  else if(col === 2){
-    if(arr[row][1] === 0){
-      arr[row][1] = arr[row][2];
-      arr[row][2] = 0;
-      collapseLeft(arr, row, 1);
-    }
-    else if(arr[row][1] === arr[row][2]){
-      if (rowAlreadyCollapsed)
-        return;
-      rowAlreadyCollapsed = true;
-      arr[row][1] = arr[row][1] + arr[row][2];
-      arr[row][2] = 0;
-      collapseLeft(arr, row, 1);
-    }
-    else { //do nothing
-    }
-  }
-  //--------------------- fix col 3 .
-  else if(col === 3){
-    if(arr[row][2] === 0){
-      arr[row][2] = arr[row][3];
-      arr[row][3] = 0;
-      collapseLeft(arr, row, 2);
-    }
-    else if(arr[row][2] === arr[row][3]){
-      rowAlreadyCollapsed = true;
-      arr[row][2] = arr[row][2] + arr[row][3];
-      arr[row][3] = 0;
-      collapseLeft(arr, row, 2);
-    }
-    else { //do nothing
-    }
-  }
 }
-
-
-
-// COLORS = {0: "white",
-//           2: "#E8E1D2",
-//           4: "#E8D0A5",
-//           8: "#E8AA6F",
-//           16: "#E88A4C",
-//           32: "#E86550",
-//           64: "#E8462D",
-//           128: "#FFE35D",
-//           256: "#FFC700"
-//           }
