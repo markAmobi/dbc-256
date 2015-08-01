@@ -1,15 +1,12 @@
 $(document).ready(function() {
   var game = new Game('0000202000000000');
   updateDOM(game);
-  // debugger;
-
 
   //put game on HTML
   //bind keys
    Mousetrap.bind('up', function() {
       game.moveUp();
       updateDOM(game);
-
    });
 
    Mousetrap.bind('down', function() {
@@ -29,9 +26,7 @@ $(document).ready(function() {
 }); //end document ready.
 
 function updateDOM(game){
-  // debugger;
   var gameArray = game.get2DArray();
-
   updateRow(gameArray, 0);
   updateRow(gameArray, 1);
   updateRow(gameArray, 2);
@@ -47,7 +42,6 @@ function updateRow(gameArray, rowNum){
   }
   tableRow.html(content);
 }
-
 COLORS = {0: "white",
           2: "#E8E1D2",
           4: "#E8D0A5",
