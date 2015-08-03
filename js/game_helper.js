@@ -78,8 +78,9 @@ function convert1DArrayTo2DArray(arr){
 
 
 function get2Or4(){
-  var choice = Math.round(Math.random());
-  if (choice === 0)
+  // var choice = Math.round(Math.random());
+  var choice = Math.random();
+  if (choice <= 0.8)
     return 2;
   else return 4;
 }
