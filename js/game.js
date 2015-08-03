@@ -3,8 +3,17 @@
 **/
 
 function Game(board){
-  this.board = board || '0000202000000000';
-  this.twoDArray = convertStringTo2DArray(this.board);
+  // this.board = board || '0000202000000000';
+  if(board){
+    this.board = board;
+    this.twoDArray = convertStringTo2DArray(this.board);
+  }
+  else{
+    this.board = '0000000000000000';
+    this.twoDArray = convertStringTo2DArray(this.board);
+    this.spawnBlock();
+    this.spawnBlock();
+  }
 }
 
 Game.prototype.toString = function(){

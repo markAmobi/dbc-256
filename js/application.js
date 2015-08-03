@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  var game = new Game('0000202000000000');
+  // var game = new Game('0000202000000000');
+  var game = new Game();
   updateDOM(game);
 
   //put game on HTML
