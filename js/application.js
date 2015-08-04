@@ -39,7 +39,11 @@ function updateRow(gameArray, rowNum){
   var tableRow = $("#r" + rowNum);
   var content = "";
   for(var i=0; i<4; i++){
-    content +=("<td style='background-color:" + COLORS[row[i]] + ";'><strong>"+ row[i] +"</strong></td>");
+    var num = row[i];
+    var color = COLORS[row[i]];
+    if (num == 0)
+      num = "" //don't display 0 if blank.
+    content +=("<td style='background-color:" + color + ";'><strong>"+ num +"</strong></td>");
   }
   tableRow.html(content);
 }
